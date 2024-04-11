@@ -61,11 +61,11 @@ class Nodo:
             if elemento is not None:    
                 print(elemento.get_contenido())
 
-    def preorder(self):
+    def preorder(self, nivel = 0):
         if not self.es_nulo():
-            print(self.valor)
+            print("  " * nivel + self.valor)
             for hijo in self.hijos:
-                hijo.preorder()
+                hijo.preorder(nivel+1)
 
 #main
 nodito = Nodo(1)
@@ -76,17 +76,3 @@ nodito.add_hijo(5)
 
 nodito.hijos[1].add_hijo(67)
 
-#nodito.add_son_position(4,1)
-
-##print(nodito.hijos[0].get_contenido())
-##print(nodito.hijos[0].get_raiz().get_contenido())
-
-#nodito.hijos[1].imprimir_hijos()
-#print(nodito.hijos[1].hijos[0].get_contenido())
-#print(nodito.hijos[1].hijos[0].get_raiz().get_contenido())
-#print(nodito.hijos[0].get_hijoizq().get_contenido())
-
-
-#print(nodito.hijos[2].get_hermanoder().get_contenido())
-
-nodito.preorder()
