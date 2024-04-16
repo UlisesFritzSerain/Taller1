@@ -72,11 +72,6 @@ class Nodo:
             for hijo in self.hijos:
                 hijo.preorder(nivel+1)
 
-#main
-noditoPadre = Nodo(3)
-noditoPadre.add_hijo(1)
-noditoPadre.add_hijo(5)
-noditoPadre.add_hijo(7)
 
-noditoPadre.imprimir_hijos()
+
 

@@ -1,5 +1,5 @@
 from ejercicio1 import Nodo
-
+import funcionesxml as fxml
 class Menu:
     def __init__(self, raiz):
         self.raiz = raiz
@@ -14,7 +14,8 @@ class Menu:
             print("2. Agregar hermano a la derecha")
             print("3. Eliminar nodo")
             print("4. Avanzar al siguiente nodo")
-            print("5. Salir del menú (primera vez vuelve a la raiz)")
+            print("5. Volver a la raíz")
+            print("6. Salir del menú ")
             
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
@@ -49,6 +50,8 @@ class Menu:
                     self.mostrar_menu(hijo)
                 break
             elif opcion == "5":
+                nodo = self.raiz
+            elif opcion == "6":
                 return
             else:
                 print("Opción no válida. Por favor, seleccione una opción válida.")
@@ -57,20 +60,12 @@ class Menu:
         self.mostrar_menu(self.raiz)
         self.raiz.preorder()
 
+
+arbol_cargado = fxml.cargar_arbol_desde_xml("arbol.xml")
+
+
 if __name__ == "__main__":
-    # Crear un árbol de ejemplo
-    raiz = Nodo("A")
-    B = Nodo("B", raiz)
-    C = Nodo("C", raiz)
-    D = Nodo("D", B)
-    E = Nodo("E", B)
-    F = Nodo("F", C)
-    G = Nodo("G", C)
-    raiz.hijos = [B, C]
-    B.hijos = [D, E]
-    C.hijos = [F, G]
-
-    menu = Menu(raiz)
-
-    # Iniciar el menú
-    menu.iniciar_menu() 
+    menu = Menu(arbol_cargado) #crea clase menu
+    menu.iniciar_menu() # inicia el menu, cuando termina manda el arbol modificado al archivo
+    xml_arbol = fxml.arbol_a_xml(arbol_cargado)
+    fxml.guardar_xml_en_archivo(xml_arbol, "arbol.xml")
