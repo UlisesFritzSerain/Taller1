@@ -3,9 +3,9 @@
 ### Arboles en Archivos Indexados
 ***
 ### Arboles B
-Son estructuras de datos de busqueda que estan diseñadas para mantener datos ordenados y permitir operaciones de busuqeda eficientes. Especialmente diseñados para ser utilizados en sistemas de almacenamiento de base de datos y sistemas de archivos, donde el acceso rapido a los datos es esencial.
-La idea de los Arboles B es que los nodos internos deben tener un número variable de nodos hijo dentro de un rango predefinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varía dentro de un nodo. Para que siga manteniéndose el número de nodos dentro del rango predefinido, los nodos internos se juntan o se parten.
-**Caracteristicas:** Son eficientes en busqueda, insercion y eliminacion de datos. mantiene un factor de equilibrio para asegurar tiempos de busqueda predecibles, ademas de que cada nodo contiene informacion sobre el rango de claves que abarca y como llegar a los nodos hijos.
+Son estructuras de datos de busqueda que estan diseñadas para mantener datos ordenados y permitir operaciones de busqueda eficientes. Especialmente diseñados para ser utilizados en sistemas de almacenamiento de base de datos y sistemas de archivos, donde el acceso rapido a los datos es esencial.
+La idea de los Arboles B es que los nodos internos deben tener un número variable de nodos hijo dentro de un rango predefinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varía dentro de un nodo. Para que siga manteniéndose el número de nodos dentro del rango predefinido, los nodos internos se juntan o se parten.  
+**Caracteristicas:** Son eficientes en busqueda, insercion y eliminacion de datos. mantiene un factor de equilibrio para asegurar tiempos de busqueda predecibles, ademas de que cada nodo contiene informacion sobre el rango de claves que abarca y como llegar a los nodos hijos.  
 **Variantes:** Arboles B+ / Arboles B*
 
 **Ejemplo de un Arbol B**  
