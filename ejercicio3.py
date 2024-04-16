@@ -34,7 +34,7 @@ class NodoArbolB:
             
             else:
                 #desciendo al subarbol correspondiente
-                if clave > nodo_actual.claves[indice - 1]:
+                if indice > 0 and clave > nodo_actual.claves[indice - 1]:
                     siguiente_indice = indice
                 else:
                     siguiente_indice = indice
