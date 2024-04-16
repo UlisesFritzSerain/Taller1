@@ -8,8 +8,8 @@ La idea de los Arboles B es que los nodos internos deben tener un número variab
 **Caracteristicas:** Son eficientes en busqueda, insercion y eliminacion de datos. mantiene un factor de equilibrio para asegurar tiempos de busqueda predecibles, ademas de que cada nodo contiene informacion sobre el rango de claves que abarca y como llegar a los nodos hijos.
 **Variantes:** Arboles B+ / Arboles B*
 
-**Ejemplo de un Arbol B**
-![Ejemplo ArbolB](https://www.apinem.com/wp-content/uploads/2024/02/arbol-b-ejemplo.png)
+**Ejemplo de un Arbol B**  
+![Ejemplo ArbolB](https://www.apinem.com/wp-content/uploads/2024/02/arbol-b-ejemplo.png)  
 **Estructura de un Nodo (Arbol B)**
 ```
 struct Nodo {
@@ -31,8 +31,8 @@ Nodo* buscar(Nodo* raiz, int clave) {
   return buscar(raiz->hijos[i], clave);
 }
 ```
-**Ejemplo de un Arbol B+**
-![Ejemplo Arbol+](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvOit-vlTXOW_AiIs8bSbpUQx7Gvh0iSu6VESWMFNxg&s)
+**Ejemplo de un Arbol B+**  
+![Ejemplo Arbol+](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQvOit-vlTXOW_AiIs8bSbpUQx7Gvh0iSu6VESWMFNxg&s)  
 **Estructura de un Nodo (Arbol B+)**
 ```
 struct Nodo {
@@ -65,8 +65,8 @@ function buscar(raiz, clave):
   return NULL
 }
 ```
-**Ejemplo de un Arbol B***
-![Ejemplo de Arbol B*](https://i.ytimg.com/vi/kbbHTXvylqY/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AHUBoAC4AOKAgwIABABGH8gQCgTMA8=&rs=AOn4CLC37vmvD8JAzI8n71X1QycGrwOYXQ)
+**Ejemplo de un Arbol B***  
+![Ejemplo de Arbol B*](https://i.ytimg.com/vi/kbbHTXvylqY/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AHUBoAC4AOKAgwIABABGH8gQCgTMA8=&rs=AOn4CLC37vmvD8JAzI8n71X1QycGrwOYXQ)  
 **Estructura de un Nodo (Arbol B***)
 ```
 struct Nodo {
