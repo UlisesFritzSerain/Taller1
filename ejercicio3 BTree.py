@@ -92,10 +92,14 @@ def main():
  
   B.print_tree(B.root)
  
-  if B.search_key(8) is not None:
-    print("\nFound")
+
+  valor = input("Ingrese clave a buscar: ")
+  valor = int(valor)
+
+  if B.search_key(valor) is not None:
+    print("\nSe encontro la clave", valor)
   else:
-    print("\nNot Found")
+    print("\nNo se encontro la clave", valor)
  
  
 if __name__ == '__main__':
