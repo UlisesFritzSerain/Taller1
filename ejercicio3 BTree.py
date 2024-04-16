@@ -56,7 +56,7 @@ class BTree:
       z.child = y.child[t: 2 * t]
       y.child = y.child[0: t - 1]
  
-  # Imprimir el arbo
+  # Imprimir el arbol
   def print_tree(self, x, l=0):
     print("Level ", l, " ", len(x.keys), end=":")
     for i in x.keys:
