@@ -15,7 +15,7 @@ class Menu:
             print("3. Eliminar nodo")
             print("4. Avanzar al siguiente nodo")
             print("5. Volver a la raíz")
-            print("6. Salir del menú ")
+            print("6. Salir del menú (reiterar)")
             
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
