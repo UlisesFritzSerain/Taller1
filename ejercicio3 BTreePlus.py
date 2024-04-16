@@ -247,11 +247,8 @@ btree = BTree()  # Create a new B-tree
 print('The size of bucket is', bucket_size, '!')
 
 # Insert elements into the B-tree
-btree.insert(1)
-btree.insert(2)
-btree.insert(3)
-btree.display(btree.get_root())
-
-btree.insert(4)
-btree.insert(5)
+btree.insert(10)
+btree.insert(20)
+btree.insert(30)
+btree.insert(40)
 btree.display(btree.get_root())
