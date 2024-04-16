@@ -35,8 +35,10 @@ class BTree:
 
             return 0  # clave no encontrada
 
+def main():
+    maximo_hijos = 5  # cantidad maxima de hijos pre-seteada
+    btree = BTree()  # Crea un nuevo arbol
 
-maximo_hijos = 5  # cantidad maxima de hijos pre-seteada
-
-btree = BTree()  # Crea un nuevo arbol
+if __name__ == '__main__':
+  main()
 
