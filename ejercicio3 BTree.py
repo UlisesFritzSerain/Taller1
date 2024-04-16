@@ -1,4 +1,4 @@
-# Create a node
+# Crear un nodo
 class BTreeNode:
   def __init__(self, leaf=False):
     self.leaf = leaf
@@ -6,13 +6,13 @@ class BTreeNode:
     self.child = []
  
  
-# Tree
+# Arbol
 class BTree:
   def __init__(self, t):
     self.root = BTreeNode(True)
     self.t = t
  
-    # Insert node
+    # Insertar nodo
   def insert(self, k):
     root = self.root
     if len(root.keys) == (2 * self.t) - 1:
@@ -24,7 +24,7 @@ class BTree:
     else:
       self.insert_non_full(root, k)
  
-    # Insert nonfull
+    # Insertar non-full
   def insert_non_full(self, x, k):
     i = len(x.keys) - 1
     if x.leaf:
@@ -43,7 +43,7 @@ class BTree:
           i += 1
       self.insert_non_full(x.child[i], k)
  
-    # Split the child
+    # Dividir los hijos
   def split_child(self, x, i):
     t = self.t
     y = x.child[i]
@@ -56,7 +56,7 @@ class BTree:
       z.child = y.child[t: 2 * t]
       y.child = y.child[0: t - 1]
  
-  # Print the tree
+  # Imprimir el arbo
   def print_tree(self, x, l=0):
     print("Level ", l, " ", len(x.keys), end=":")
     for i in x.keys:
@@ -67,7 +67,7 @@ class BTree:
       for i in x.child:
         self.print_tree(i, l)
  
-  # Search key in the tree
+  # Buscar clave en el arbol
   def search_key(self, k, x=None):
     if x is not None:
       i = 0
