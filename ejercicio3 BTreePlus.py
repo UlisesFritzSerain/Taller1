@@ -34,6 +34,24 @@ class BTree:
                     return 1  # clave encontrada
 
             return 0  # clave no encontrada
+        
+    def imprimir(self, actual):
+        # imprimir el B-tree
+        if actual is None:
+            return
+        q = [actual]
+        while q:
+            l = len(q)
+            for _ in range(l):
+                t_node = q.pop(0)
+                for j in range(t_node.clavesActualmente_almacenadas):
+                    if t_node.clave[j] is not None:
+                        print(t_node.clave[j], end=' ')
+                for j in range(t_node.clavesActualmente_almacenadas + 1):
+                    if t_node.puntero[j]:
+                        q.append(t_node.puntero[j])
+                print('\t', end='')
+            print('\n')
 
 def main():
     maximo_hijos = 5  # cantidad maxima de hijos pre-seteada
