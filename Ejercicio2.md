@@ -99,13 +99,70 @@ function buscar(raiz, clave):
 
 ### Indices en Bases de Datos
 ***
-En Proceso...
+### Indice B TREE (Arbol B)
+
+Como anteriormente dijimos, este tipo de indice tiene una estructura de índice jerárquica para búsquedas rápidas y eficientes, especialmente en conjuntos de datos grandes. Tiene una estructura de datos en forma de árbol, búsquedas eficientes de rangos, prefijos y valores exactos. Tambien es altamente escalable y eficiente para conjuntos de datos grandes y soporta ordenamiento natural de las claves.  
+Sigue presentando las **variantes** de: Indice B+Tree y Indice B*Tree  
+
+**Ejemplo de Tablas con Indice B TREE**  
+![Tablas B TREE](https://static1.squarespace.com/static/53528f90e4b0768cad09d33b/53c6505be4b0b16e59d8552b/5513c203e4b0e200574cca3c/1427358552743/11.png?format=1500w)  
+**Implementacion en Base de Datos (Lenguaje PostgreSQL)**
+```
+CREATE TABLE clientes (
+  id SERIAL PRIMARY KEY,
+  nombre VARCHAR(255),
+  email VARCHAR(255),
+  direccion VARCHAR(255)
+);
+CREATE INDEX clientes_nombre_idx ON clientes USING btree (name);
+```
+### Indice Hash
+
+Un Indice Hash es una estructura de datos avanzada que se utiliza en el campo de las bases de datos y sirve como mecanismo de búsqueda para localizar registros de datos basándose en una clave hash única, que se genera a partir de la clave principal del registro u otros atributos de identificación.  
+El objetivo principal de un índice hash es proporcionar una forma rápida y eficiente de buscar y acceder a datos en grandes bases de datos, donde los algoritmos de búsqueda lineal serían ineficientes y consumirían mucho tiempo.
+En cuanto a sus **variantes**: Puede ser de **Hash abierto**: Almacena valores en una tabla con listas enlazadas; o de **Hash cerrado**: Almacena valores directamente en la tabla, ya que tiene limitaciones.  
+
+**Ejemplo de Tablas con Indice Hash**  
+![Tablas Hash](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Tabla_hash2.png/350px-Tabla_hash2.png)  
+**Implementacion en Base de Datos (PostgreSQL)**
+```
+CREATE TABLE productos (
+  id_producto INT PRIMARY KEY AUTO_INCREMENT,
+  nombre_producto VARCHAR(255) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  categoria VARCHAR(50) NOT NULL
+);
+CREATE INDEX idx_producto_categoria ON productos USING HASH (categoria);
+```
+
+### Indice Invertido
+
+Un índice invertido es una forma de estructurar la información que va a ser recuperada por un motor de búsqueda. Por tanto, el objetivo es crear la estructura de datos para llevar a cabo una búsqueda de texto completa. En un índice invertido, el buscador crea los índices, o términos de búsqueda, a partir de una serie de documentos, indicando el o los documentos que los contienen.  
+De esta manera, cuando el usuario teclea un término de búsqueda determinado, el buscador le indica los documentos que contienen dicho término.  
+
+**Ejemplo de Tabla con Indice Invertido**  
+![Tabla Indice Invertido](https://i.ytimg.com/vi/TvHv2UZvx74/maxresdefault.jpg)  
+**Implementacion en Base de Datos (PostgreSQL)**
+```
+CREATE TABLE documentos (
+  id_documento INT PRIMARY KEY AUTO_INCREMENT,
+  titulo VARCHAR(255) NOT NULL,
+  contenido TEXT NOT NULL
+);
+CREATE INDEX idx_palabras_documento USING gin ON documentos USING gin(contenido);
+```
 ***
 ## Bibliografia
-https://es.wikipedia.org/wiki/%C3%81rbol-B
-https://es.wikipedia.org/wiki/%C3%81rbol-B*
-https://es.wikipedia.org/wiki/%C3%81rbol_B%2B
-https://www.apinem.com/arboles-programacion/
-https://es.wikipedia.org/wiki/%C3%81rbol_binario_indexado
-https://www.adesso.es/es/noticias/blog/indices-de-bases-de-datos-la-clave-para-la-optimizacion-del-rendimiento.jsp
-https://www.youtube.com/watch?v=E3r4maNRReo
+https://es.wikipedia.org/wiki/%C3%81rbol-B  
+https://es.wikipedia.org/wiki/%C3%81rbol-B*  
+https://es.wikipedia.org/wiki/%C3%81rbol_B%2B  
+https://www.apinem.com/arboles-programacion/  
+https://es.wikipedia.org/wiki/%C3%81rbol_binario_indexado  
+https://www.adesso.es/es/noticias/blog/indices-de-bases-de-datos-la-clave-para-la-optimizacion-del-rendimiento.jsp  
+https://www.youtube.com/watch?v=E3r4maNRReo  
+https://appmaster.io/es/glossary/indice-hash-es  
+https://medium.com/@lordmoma/why-using-b-tree-indexing-in-sql-6a3203ed57a5  
+https://www.postgresql.org/docs/current/indexes-types.html  
+https://es.wikipedia.org/wiki/%C3%8Dndice_invertido  
+https://www.postgresql.org/docs/current/gin-intro.html  
+https://www.youtube.com/watch?v=MeR7byPjnpI  
