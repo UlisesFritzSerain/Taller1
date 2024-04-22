@@ -45,10 +45,25 @@ class Menu:
                     print(f"El nodo {nodo.valor} ha sido eliminado y sus hijos han sido movidos al nodo padre.")
                 else:
                     print("No se puede eliminar el nodo raíz.")
+                nodo = self.raiz
             elif opcion == "4":
-                for hijo in nodo.hijos:
-                    self.mostrar_menu(hijo)
-                break
+                if nodo.tiene_hijos():
+                    nodo = nodo.get_hijoizq()
+                else:
+                    padre = nodo.get_padre()
+                    if padre:
+                        indice_del_nodo = padre.hijos.index(nodo)
+                        if indice_del_nodo + 1 < len(padre.hijos):
+                            nodo = padre.hijos[indice_del_nodo + 1]
+                        else:
+                # Si no hay más hermanos, avanzar al primer hermano del padre
+                            hermano_izquierdo = padre.get_hijoizq()
+                            if hermano_izquierdo:
+                                nodo = hermano_izquierdo.get_hermanoder()
+                            else:
+                                print("No hay más nodos siguientes.")
+                    else:
+                        print("No hay nodos siguientes.")
             elif opcion == "5":
                 nodo = self.raiz
             elif opcion == "6":
