@@ -27,6 +27,17 @@ class BTree:
        
     else:
       return self.buscar(k, self.raiz)
+    
+  # Imprimir el arbol
+  def imprimir(self, nivel=0):
+    print("Nivel ", nivel, " ", len(self.claves), end=":")
+    for i in self.claves:
+      print(i, end=" ")
+    print()
+    nivel += 1
+    if len(self.hijos) > 0:
+      for i in self.hijos:
+        self.imprimir(i, nivel)
  
  
 def main():
