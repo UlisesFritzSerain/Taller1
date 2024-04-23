@@ -4,7 +4,7 @@
 ***
 ### Arboles B
 Son estructuras de datos de busqueda que estan diseñadas para mantener datos ordenados y permitir operaciones de busqueda eficientes. Especialmente diseñados para ser utilizados en sistemas de almacenamiento de base de datos y sistemas de archivos, donde el acceso rapido a los datos es esencial.
-La idea de los Arboles B es que los nodos internos deben tener un número variable de nodos hijo dentro de un rango predefinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varía dentro de un nodo. Para que siga manteniéndose el número de nodos dentro del rango predefinido, los nodos internos se juntan o se parten.  
+La idea de los Arboles B es que los nodos internos deben tener un numero variable de nodos hijo dentro de un rango predefinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varia dentro de un nodo. Para que siga manteniendose el numero de nodos dentro del rango predefinido, los nodos internos se juntan o se parten.  
 **Caracteristicas:** Son eficientes en busqueda, insercion y eliminacion de datos. mantiene un factor de equilibrio para asegurar tiempos de busqueda predecibles, ademas de que cada nodo contiene informacion sobre el rango de claves que abarca y como llegar a los nodos hijos.  
 **Variantes:** Arboles B+ / Arboles B*
 
@@ -14,7 +14,7 @@ La idea de los Arboles B es que los nodos internos deben tener un número variab
 ```
 struct Nodo {
       int claves[m - 1];  // Array de claves
-      int n;            // Número de claves almacenadas
+      int n;            // Numero de claves almacenadas
   Nodo* hijos[m];   // Array de punteros a nodos hijos
 };
 ```
@@ -37,7 +37,7 @@ Nodo* buscar(Nodo* raiz, int clave) {
 ```
 struct Nodo {
   int claves[m - 1];  // Array de claves
-  int n;            // Número de claves almacenadas
+  int n;            // Numero de claves almacenadas
   Nodo* hijos[m];   // Array de punteros a nodos hijos
   bool es_hoja;     // Indica si es un nodo hoja
   Nodo* enlaceHermano // (Si es hoja) Puede ser que tenga enlace al hermano a derecha
@@ -71,13 +71,13 @@ function buscar(raiz, clave):
 ```
 struct Nodo {
   int claves[m - 1]; // Array de claves
-  int n;           // Número de claves almacenadas
+  int n;           // Numero de claves almacenadas
   Nodo* hijos[m];   // Array de punteros a nodos hijos (puede tener punteros nulos)
   bool es_hoja;     // Indica si es un nodo hoja
   Nodo* enlaceHermano // (Si es hoja) Puede ser que tenga enlace al hermano a derecha
-  int nClavesMin;   // Número mínimo de claves permitido (porcentaje del tamaño del array)
-  int nClavesMax;   // Número máximo de claves permitido (porcentaje del tamaño del array)
-  Nodo* padre;     // Puntero al nodo padre (NULL para la raíz)
+  int nClavesMin;   // Numero minimo de claves permitido (porcentaje del tamaño del array)
+  int nClavesMax;   // Numero maximo de claves permitido (porcentaje del tamaño del array)
+  Nodo* padre;     // Puntero al nodo padre (NULL para la raiz)
 }
 ```
 **Funcion de Busqueda (Arbol B***)
@@ -101,7 +101,7 @@ function buscar(raiz, clave):
 ***
 ### Indice B TREE (Arbol B)
 
-Como anteriormente dijimos, este tipo de indice tiene una estructura de índice jerárquica para búsquedas rápidas y eficientes, especialmente en conjuntos de datos grandes. Tiene una estructura de datos en forma de árbol, búsquedas eficientes de rangos, prefijos y valores exactos. Tambien es altamente escalable y eficiente para conjuntos de datos grandes y soporta ordenamiento natural de las claves.  
+Como anteriormente dijimos, este tipo de indice tiene una estructura de indice jerarquica para busquedas rapidas y eficientes, especialmente en conjuntos de datos grandes. Tiene una estructura de datos en forma de arbol, busquedas eficientes de rangos, prefijos y valores exactos. Tambien es altamente escalable y eficiente para conjuntos de datos grandes y soporta ordenamiento natural de las claves.  
 Sigue presentando las **variantes** de: Indice B+Tree y Indice B*Tree  
 
 **Ejemplo de Tablas con Indice B TREE**  
@@ -118,8 +118,8 @@ CREATE INDEX clientes_nombre_idx ON clientes USING btree (name);
 ```
 ### Indice Hash
 
-Un Indice Hash es una estructura de datos avanzada que se utiliza en el campo de las bases de datos y sirve como mecanismo de búsqueda para localizar registros de datos basándose en una clave hash única, que se genera a partir de la clave principal del registro u otros atributos de identificación.  
-El objetivo principal de un índice hash es proporcionar una forma rápida y eficiente de buscar y acceder a datos en grandes bases de datos, donde los algoritmos de búsqueda lineal serían ineficientes y consumirían mucho tiempo.
+Un Indice Hash es una estructura de datos avanzada que se utiliza en el campo de las bases de datos y sirve como mecanismo de busqueda para localizar registros de datos basandose en una clave hash unica, que se genera a partir de la clave principal del registro u otros atributos de identificacion.  
+El objetivo principal de un indice hash es proporcionar una forma rapida y eficiente de buscar y acceder a datos en grandes bases de datos, donde los algoritmos de busqueda lineal serian ineficientes y consumirian mucho tiempo.
 En cuanto a sus **variantes**: Puede ser de **Hash abierto**: Almacena valores en una tabla con listas enlazadas; o de **Hash cerrado**: Almacena valores directamente en la tabla, ya que tiene limitaciones.  
 
 **Ejemplo de Tablas con Indice Hash**  
@@ -137,8 +137,8 @@ CREATE INDEX idx_producto_categoria ON productos USING HASH (categoria);
 
 ### Indice Invertido
 
-Un índice invertido es una forma de estructurar la información que va a ser recuperada por un motor de búsqueda. Por tanto, el objetivo es crear la estructura de datos para llevar a cabo una búsqueda de texto completa. En un índice invertido, el buscador crea los índices, o términos de búsqueda, a partir de una serie de documentos, indicando el o los documentos que los contienen.  
-De esta manera, cuando el usuario teclea un término de búsqueda determinado, el buscador le indica los documentos que contienen dicho término.  
+Un indice invertido es una forma de estructurar la informacion que va a ser recuperada por un motor de busqueda. Por tanto, el objetivo es crear la estructura de datos para llevar a cabo una busqueda de texto completa. En un indice invertido, el buscador crea los indices, o terminos de busqueda, a partir de una serie de documentos, indicando el o los documentos que los contienen.  
+De esta manera, cuando el usuario teclea un termino de busqueda determinado, el buscador le indica los documentos que contienen dicho termino.  
 
 **Ejemplo de Tabla con Indice Invertido**  
 ![Tabla Indice Invertido](https://i.ytimg.com/vi/TvHv2UZvx74/maxresdefault.jpg)  

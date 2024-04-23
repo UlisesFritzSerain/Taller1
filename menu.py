@@ -17,20 +17,20 @@ class Menu:
             print("2. Agregar hermano a la derecha")
             print("3. Eliminar nodo")
             print("4. Avanzar al siguiente nodo")
-            print("5. Volver a la raíz")
-            print("6. Salir del menú (reiterar)")
+            print("5. Volver a la raiz")
+            print("6. Salir del menu (reiterar)")
             
-            opcion = input("Seleccione una opción: ")
+            opcion = input("Seleccione una opcion: ")
             if opcion == "1":
                 valor_hijo = input("Ingrese el valor del nuevo hijo: ")
                 if len(nodo.hijos)==0:
                     posicion = 0
                 else:
                     max_posicion = len(nodo.hijos)
-                    posicion = int(input(f"Ingrese la posición del nuevo hijo (0-{max_posicion}): "))
+                    posicion = int(input(f"Ingrese la posicion del nuevo hijo (0-{max_posicion}): "))
                     while posicion < 0 or posicion > max_posicion:
-                        print("Posición no válida. Por favor, ingrese una posición válida.")
-                        posicion = int(input(f"Ingrese la posición del nuevo hijo (0-{max_posicion}): "))
+                        print("Posicion no valida. Por favor, ingrese una posicion valida.")
+                        posicion = int(input(f"Ingrese la posicion del nuevo hijo (0-{max_posicion}): "))
                 nodo.add_son_position(valor_hijo, posicion)
             elif opcion == "2":
                 valor_hermano = input("Ingrese el valor del nuevo hermano: ")
@@ -47,7 +47,7 @@ class Menu:
                     padre.hijos.pop(indice_del_nodo)
                     print(f"El nodo {nodo.valor} ha sido eliminado y sus hijos han sido movidos al nodo padre.")
                 else:
-                    print("No se puede eliminar el nodo raíz.")
+                    print("No se puede eliminar el nodo raiz.")
                 nodo = self.raiz
             elif opcion == "4":
                 if nodo.tiene_hijos():
@@ -59,12 +59,12 @@ class Menu:
                         if indice_del_nodo + 1 < len(padre.hijos):
                             nodo = padre.hijos[indice_del_nodo + 1]
                         else:
-                # Si no hay más hermanos, avanzar al primer hermano del padre
+                # Si no hay mas hermanos, avanzar al primer hermano del padre
                             hermano_izquierdo = padre.get_hijoizq()
                             if hermano_izquierdo:
                                 nodo = hermano_izquierdo.get_hermanoder()
                             else:
-                                print("No hay más nodos siguientes.")
+                                print("No hay mas nodos siguientes.")
                     else:
                         print("No hay nodos siguientes.")
             elif opcion == "5":
@@ -72,7 +72,7 @@ class Menu:
             elif opcion == "6":
                 return
             else:
-                print("Opción no válida. Por favor, seleccione una opción válida.")
+                print("Opcion no valida. Por favor, seleccione una opcion valida.")
 
     def iniciar_menu(self):
         self.mostrar_menu(self.raiz)

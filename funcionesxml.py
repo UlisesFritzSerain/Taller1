@@ -36,6 +36,6 @@ def arbol_a_xml(nodo):
 def guardar_xml_en_archivo(arbol_xml, nombre_archivo):
     try:
         arbol_xml.write(nombre_archivo)
-        print(f"El árbol ha sido guardado en el archivo {nombre_archivo}.")
+        print(f"El arbol ha sido guardado en el archivo {nombre_archivo}.")
     except Exception as e:
-        print(f"Error al guardar el árbol en el archivo {nombre_archivo}: {e}")
+        print(f"Error al guardar el arbol en el archivo {nombre_archivo}: {e}")

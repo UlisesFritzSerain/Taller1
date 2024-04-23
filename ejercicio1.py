@@ -54,9 +54,9 @@ class Nodo:
 
     def add_son_position(self, valor, position):
         nuevo_hijo = Nodo(valor, self)
-        if position < 0 or position > len(self.hijos):  # Verifica si la posición es válida
-            raise ValueError("Posición no válida")
-        self.hijos.insert(position, nuevo_hijo)  # Insertar el nuevo hijo en la posición especificada
+        if position < 0 or position > len(self.hijos):  # Verifica si la posicion es valida
+            raise ValueError("Posicion no valida")
+        self.hijos.insert(position, nuevo_hijo)  # Insertar el nuevo hijo en la posicion especificada
         # Desplazar los hijos existentes a posiciones mayores
         for i in range(position + 1, len(self.hijos)):
             self.hijos[i].padre = self  # Actualizar el padre del hijo
