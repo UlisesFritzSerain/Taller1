@@ -54,9 +54,9 @@ class Nodo:
 
     def add_son_position(self, valor, position):
         nuevo_hijo = Nodo(valor, self)
-        if position < 0 or position > len(self.hijos):  # Verifica si la posición es válida
-            raise ValueError("Posición no válida")
-        self.hijos.insert(position, nuevo_hijo)  # Insertar el nuevo hijo en la posición especificada
+        if position < 0 or position > len(self.hijos):  # Verifica si la posicion es valida
+            raise ValueError("Posicion no valida")
+        self.hijos.insert(position, nuevo_hijo)  # Insertar el nuevo hijo en la posicion especificada
         # Desplazar los hijos existentes a posiciones mayores
         for i in range(position + 1, len(self.hijos)):
             self.hijos[i].padre = self  # Actualizar el padre del hijo
@@ -68,10 +68,24 @@ class Nodo:
 
     def preorder(self, nivel = 0):
         if not self.es_nulo():
-            print("  " * nivel + self.valor)
+            print("  " * nivel + self.valor) # Muestro Valor
             for hijo in self.hijos:
                 hijo.preorder(nivel+1)
 
+    def inorder(self, nivel=0):
+        if self is None:
+            return
+        if len(self.hijos) > 0:
+            self.hijos[0].inorder(nivel + 1)
+        print(self.valor+" ", end='') # Muestro Valor
+        for hijo in self.hijos[1:]:
+            hijo.inorder(nivel + 1)
+
+    def postorder(self, nivel=0):
+        if not self.es_nulo():
+            for hijo in self.hijos:
+                hijo.postorder(nivel + 1)
+            print(self.valor+" ", end='') # Muestro Valor
 
 
 
