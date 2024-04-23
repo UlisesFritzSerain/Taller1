@@ -6,10 +6,13 @@ class Menu:
 
     def mostrar_menu(self, nodo):
         while True:
-            print("Arbol actual:")
+            print("Arbol Inorden: ",end="")
+            self.raiz.inorder()
+            print("\nArbol Postorden: ",end="")
+            self.raiz.postorder()
+            print("\nArbol actual:")
             self.raiz.preorder()
-            
-            print(f"Nodo actual: {nodo.valor}")
+            print(f"\nNodo actual: {nodo.valor}")
             print("1. Agregar hijo")
             print("2. Agregar hermano a la derecha")
             print("3. Eliminar nodo")
@@ -81,6 +84,7 @@ arbol_cargado = fxml.cargar_arbol_desde_xml("arbol.xml")
 
 if __name__ == "__main__":
     menu = Menu(arbol_cargado) #crea clase menu
+
     menu.iniciar_menu() # inicia el menu, cuando termina manda el arbol modificado al archivo
     xml_arbol = fxml.arbol_a_xml(arbol_cargado)
     fxml.guardar_xml_en_archivo(xml_arbol, "arbol.xml")

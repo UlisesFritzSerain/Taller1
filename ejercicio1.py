@@ -68,10 +68,24 @@ class Nodo:
 
     def preorder(self, nivel = 0):
         if not self.es_nulo():
-            print("  " * nivel + self.valor)
+            print("  " * nivel + self.valor) # Muestro Valor
             for hijo in self.hijos:
                 hijo.preorder(nivel+1)
 
+    def inorder(self, nivel=0):
+        if self is None:
+            return
+        if len(self.hijos) > 0:
+            self.hijos[0].inorder(nivel + 1)
+        print(self.valor+" ", end='') # Muestro Valor
+        for hijo in self.hijos[1:]:
+            hijo.inorder(nivel + 1)
+
+    def postorder(self, nivel=0):
+        if not self.es_nulo():
+            for hijo in self.hijos:
+                hijo.postorder(nivel + 1)
+            print(self.valor+" ", end='') # Muestro Valor
 
 
 
